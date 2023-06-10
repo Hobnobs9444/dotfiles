@@ -7,7 +7,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # set windows home
     alias w="/mnt/c/Users/mark"
 
-elif [[ "$OSTYPE" == "darwin*" ]]; then
+elif [[ "$OSTYPE" =~ "darwin" ]]; then
     # source from .zsh
     source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

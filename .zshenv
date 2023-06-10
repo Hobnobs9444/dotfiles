@@ -2,7 +2,7 @@
 # ALWAYS sourced unlike .zprofile and .zshrc
 
 # MacOS env 
-if [[ "$OSTYPE" == "darwin*" ]]; then
+if [[ "$OSTYPE" =~ "darwin" ]]; then
   # Add /usr/local/bin to PATH
   export PATH="/usr/local/bin:${PATH}"
 
