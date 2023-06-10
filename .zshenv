@@ -1,27 +1,52 @@
 # .zshenv
 # ALWAYS sourced unlike .zprofile and .zshrc
 
-# PATH
+# MacOS env 
+if [[ "$OSTYPE" == "darwin*" ]]; then
+  # Add /usr/local/bin to PATH
+  export PATH="/usr/local/bin:${PATH}"
 
-# add usr/local/bin
-export PATH="/usr/local/bin:${PATH}"
+  # Setting PATH for Python 3.9
+  export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
 
-# setting PATH for Python 3.9
-PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
-export PATH
+  # Update PATH for the Google Cloud SDK
+  if [ -f '/Users/mark/google-cloud-sdk/path.zsh.inc' ]; then
+    source '/Users/mark/google-cloud-sdk/path.zsh.inc'
+  fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mark/google-cloud-sdk/path.zsh.inc' ] 
-then 
-	source '/Users/mark/google-cloud-sdk/path.zsh.inc' 
+  # Enable shell command completion for gcloud
+  if [ -f '/Users/mark/google-cloud-sdk/completion.zsh.inc' ]; then
+    source '/Users/mark/google-cloud-sdk/completion.zsh.inc'
+  fi
+
+  # Add Ruby and Gem paths to PATH
+  export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+  export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
+  
+  echo "MacOS env loaded"
+# WSL env
+elif [[ "$OSTYPE" == "linux-gnu" ]]; then
+  # Add /usr/lib and /usr/local/lib to PATH
+  export LD_LIBRARY_PATH="/lib:/usr/lib:/usr/local/lib:/usr/.local/bin"
+
+  # Add starship to PATH
+  export PATH="$PATH:/mnt/c/Program\ Files/starship/bin"
+
+  
+  # Set up Homebrew environment
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+  echo "WSL env loaded"
+
+else
+    echo "Unsupported operating system"
 fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/mark/google-cloud-sdk/completion.zsh.inc' ]
-then 
-	source '/Users/mark/google-cloud-sdk/completion.zsh.inc'
-fi
+# Universal settings
 
-export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
-export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
+# Set up Rust environment
 . "$HOME/.cargo/env"
+
+# Set timezone
+export TZ="Europe/London"
+
