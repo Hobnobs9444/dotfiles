@@ -23,7 +23,6 @@ if [[ "$OSTYPE" == "darwin*" ]]; then
   export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
   export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
   
-  echo "MacOS env loaded"
 # WSL env
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Add /usr/lib and /usr/local/lib to PATH
@@ -35,8 +34,6 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   
   # Set up Homebrew environment
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-  echo "WSL env loaded"
 
 else
     echo "Unsupported operating system"
