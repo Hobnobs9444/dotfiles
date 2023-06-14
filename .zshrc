@@ -4,8 +4,20 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # source from linuxbrew 
     source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    
+    # X11 forwarding
+    export DISPLAY=$(ip route list default | awk '{print $3}'):0
+    export LIBGL_ALWAYS_INDIRECT=1
+
     # set windows home
-    alias w="/mnt/c/Users/mark"
+    alias w="cd /mnt/c/Users/mark"
+    
+    # start TMUX
+    if [ -z "$TMUX" ]
+      then
+        tmux attach -t TMUX || tmux new -s TMUX
+    fi
+    
 
 elif [[ "$OSTYPE" =~ "darwin" ]]; then
     # source from .zsh
