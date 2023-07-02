@@ -5,10 +5,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     
-    # X11 forwarding
-    export DISPLAY=$(ip route list default | awk '{print $3}'):0
-    export LIBGL_ALWAYS_INDIRECT=1
-
+    export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+    export PASSWORD_STORE_EXTENSIONS_DIR='/home/mark/.password-store/.extensions/'
     # set windows home
     alias w="cd /mnt/c/Users/mark"
     

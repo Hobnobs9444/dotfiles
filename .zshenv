@@ -33,8 +33,7 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   export LD_LIBRARY_PATH="/lib:/usr/lib:/usr/local/lib:/usr/.local/bin"
 
   # Add starship to PATH
-  export PATH="$PATH:/mnt/c/Program\ Files/starship/bin"
-
+  export PATH="$PATH:/mnt/c/Program\ Files"
   
   # Set up Homebrew environment
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
