@@ -1,0 +1,18 @@
+options.color_default = "text"
+
+options.color_note_type = "yellow"
+options.color_note_row = "yellow"
+
+options.color_column_sep = "text"
+options.color_key_col = "red"
+options.color_hidden_col = "black"
+
+options.color_status = "red"
+options.color_active_status = "red"
+options.color_inactive_status = "black"
+options.color_keystrokes = "233 on red"
+
+options.color_menu = "233 on red"
+options.color_menu_active = "yellow"
+options.color_menu_spec = "green"
+options.color_menu_help = "red"
