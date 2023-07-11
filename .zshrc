@@ -15,7 +15,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
       then
         tmux attach -t TMUX || tmux new -s TMUX
     fi
-    
+
+    # wslu
+    export BROWSER=wslview
 
 elif [[ "$OSTYPE" =~ "darwin" ]]; then
     # source from .zsh
@@ -32,6 +34,7 @@ fi
 alias r="radian"
 alias c="clear"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias pass='PASSWORD_STORE_ENABLE_EXTENSIONS=true pass'
 
 # Starship prompt
 eval "$(starship init zsh)"
